@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0a0a0a" />
+    <meta name="description" content="LiveStream — Watch live TV channels worldwide. Sports, News, Movies & more in HD." />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="LiveStream" />
+    <link rel="manifest" href="/manifest.json" />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+    <!-- Video.js CSS -->
+    <link href="https://unpkg.com/video.js@8.17.3/dist/video-js.min.css" rel="stylesheet" />
+
+    <title>LiveStream — Watch Live TV</title>
+
+    <style>
+      * { box-sizing: border-box; }
+      html, body, #root { height: 100%; margin: 0; padding: 0; }
+      body {
+        background: #0a0a0a;
+        color: #fff;
+        font-family: 'DM Sans', sans-serif;
+        overflow-x: hidden;
+      }
+      ::-webkit-scrollbar { width: 4px; height: 4px; }
+      ::-webkit-scrollbar-track { background: #111; }
+      ::-webkit-scrollbar-thumb { background: #333; border-radius: 2px; }
+      ::-webkit-scrollbar-thumb:hover { background: #e50914; }
+
+      /* Video.js custom theme */
+      .vjs-theme-live .vjs-control-bar {
+        background: linear-gradient(to top, rgba(0,0,0,0.95), transparent) !important;
+        height: 4rem;
+        padding: 0 1rem;
+      }
+      .vjs-theme-live .vjs-big-play-button {
+        border: 2px solid rgba(255,255,255,0.8) !important;
+        background: rgba(0,0,0,0.6) !important;
+        border-radius: 50% !important;
+        width: 80px !important;
+        height: 80px !important;
+        line-height: 80px !important;
+        font-size: 2.5rem !important;
+        top: 50% !important;
+        left: 50% !important;
+        transform: translate(-50%, -50%) !important;
+        margin: 0 !important;
+        backdrop-filter: blur(8px);
+        transition: all 0.2s ease;
+      }
+      .vjs-theme-live .vjs-big-play-button:hover {
+        background: rgba(229,9,20,0.7) !important;
+        border-color: #e50914 !important;
+        transform: translate(-50%, -50%) scale(1.1) !important;
+      }
+      .vjs-theme-live .vjs-play-progress,
+      .vjs-theme-live .vjs-volume-level { background: #e50914 !important; }
+      .vjs-theme-live .vjs-slider { background: rgba(255,255,255,0.2) !important; }
+      .vjs-theme-live { border-radius: 0; }
+      .video-js .vjs-tech { object-fit: cover; }
+
+      /* Shimmer skeleton */
+      .skeleton {
+        background: linear-gradient(90deg, #1a1a1a 25%, #2a2a2a 50%, #1a1a1a 75%);
+        background-size: 200% 100%;
+        animation: shimmer 1.5s infinite;
+      }
+      @keyframes shimmer {
+        0% { background-position: -200% 0; }
+        100% { background-position: 200% 0; }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
